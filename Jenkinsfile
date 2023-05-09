@@ -9,7 +9,7 @@ pipeline {
 
         stage('Docker Registry') {
             steps {
-                withDockerRegistry(credentialsId: 'docker-hub-test', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'docker-hub-test', url: 'https://hub.docker.com/') {
                     sh 'docker ps'
                     sh 'docker build -t leeshaun/nextjs-cicd:v10 .'
                     sh 'docker push leeshaun/nextjs-cicd:v10'
